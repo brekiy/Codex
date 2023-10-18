@@ -11,7 +11,7 @@
 
   <body>
     <div class="sidebar">
-      <a href="index.html">Home</a>
+      <a href="{{url_for('home')}}">Home</a>
       <a href="rules/index.html">Rules</a>
       <a href="char_sheet/char_sheet.html">Character Sheet</a>
       <a href="perks/index.html">Perks</a>
@@ -22,7 +22,7 @@
       {% if logname %}
         <p>Hello, {{ logname }}</p>
       {% else %}
-        <p><a href="">Log in here</a></p>
+        <p><a href="{{url_for('login')}}">Log in here</a></p>
       {% endif %}
     </div>
     {% block content %}{% endblock %}

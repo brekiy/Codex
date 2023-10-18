@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="" method="post" action="{url_for('register')}" enctype="multipart/form-data">
+<form method="post" action="{{url_for('register')}}" enctype="multipart/form-data">
   <input type="text" name="username"/>
   <input type="password" name="password"/>
   <input type="submit" value="login"/>
