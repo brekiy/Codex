@@ -19,8 +19,8 @@
       <a href="items/index.html">Items</a>
     </div>
     <div class="login">
-      {% if logname %}
-        <p>Hello, {{ logname }}</p>
+      {% if username %}
+        <p>Hello, {{ username }}</p>
       {% else %}
         <p><a href="{{url_for('login')}}">Log in here</a></p>
       {% endif %}

@@ -12,11 +12,11 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 
 
-from codex import views
+from codex import views, utils, schemas
 
 @login_manager.user_loader
 def load_user(id: str):
-    user = mongo.users.find_one({"id": id})
+    user = mongo.db.users.find_one({"id": id})
     if user:
-        return app.schema.user.User(user["id"], user["username"], user["email"])
+        return schemas.user.User(user["id"], user["username"], user["email"])
     return None

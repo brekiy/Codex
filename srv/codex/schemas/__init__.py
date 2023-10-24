@@ -1,2 +1,1 @@
-from user import User
-from attack import Attack
+from . import user, attack
