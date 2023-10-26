@@ -26,7 +26,6 @@ def add_traits():
 
 @codex.app.route("/items/<category>", methods=["GET"])
 def get_items_in_category(category):
-    # valid categories are: misc, armor, meleeweapons, rangedweapons
     if category not in ["misc", "armor", "meleeweapons", "rangedweapons"]:
         return "Bad request", 400
     
