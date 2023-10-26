@@ -3,7 +3,6 @@ import flask_login
 import flask_pymongo
 
 
-
 app = flask.Flask('codex')
 app.config.from_object('codex.config')
 mongo = flask_pymongo.PyMongo(app)

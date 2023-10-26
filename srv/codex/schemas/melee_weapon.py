@@ -1,7 +1,7 @@
 from attack import Attack
 from trait import Trait
 
-class ItemWeaponMelee():
+class MeleeWeapon():
     def __init__(self, name: str, weight: float, swing: Attack, thrust: Attack, crit_mult: int, traits: list[Trait], mgt_requirement: int, price: int):
         self.name = name
         self.weight = weight

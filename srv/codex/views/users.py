@@ -31,7 +31,7 @@ def register():
         if users.find_one({"email": email, "username": username}) is not None:
             # report duplicate email/username
             return flask.redirect(flask.url_for("register", error=1))
-        created = users.insert_one({"email": email, "username": username, "password": hash_password(password)})
+        created = users.insert_one({"email": email, "username": username, "password": codex.utils.hash_password(password)})
         login_user = codex.schemas.user.User(str(created["_id"]), username, email)
         flask_login.login_user(login_user)
         return codex.utils.redirect_next_or_home(flask.request.args.get('next'));

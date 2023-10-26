@@ -8,6 +8,7 @@
     - `character: <character object>`
     - `password: <logged in user hashed password>`
     - seems overkill but want to avoid other users overwriting other user pws
+- POST `/characters/create`: adds a new blank character to the database under the given user
 - GET `/items?category=<blarg>`: returns list of all items in the game. optional `category` query parameter.
 
 # Planned pages on frontend app

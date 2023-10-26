@@ -1,7 +1,7 @@
 from attack import Attack
 from trait import Trait
 
-class ItemWeaponRanged():
+class RangedWeapon():
     def __init__(self, name: str, weight: float, range_inc: int, shoot: Attack, melee: Attack, crit_mult: int, traits: list[Trait], mgt_requirement: int, price: int):
         self.name = name
         self.weight = weight
