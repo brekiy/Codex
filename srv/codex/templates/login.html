@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error == 1 %}
+  <p class="text-danger">Incorrect email or password.</p>
+{% endif %}
+
+<form method="post" action="{{url_for('login')}}" enctype="multipart/form-data">
+  <p>Email: </p> <input type="text" name="email"/>
+  <p>Password: </p> <input type="password" name="password"/>
+  <input type="submit" value="Login"/>
+</form>
+  <p>Don't have an account? <a href="{{url_for('register')}}">Create one!</a></p>
+{% endblock %}
