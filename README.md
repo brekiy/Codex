@@ -10,8 +10,8 @@ flask --app codex run
 ```
 
 ## Build - GUI
-The gui under `gui/` is written in Typescript using the React framework. To setup and run:
+The gui under `gui/` is written in Typescript using the Next.js React framework. To setup and run:
 ```
 npm install
-npm start
+npm run dev
 ```

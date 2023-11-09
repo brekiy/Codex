@@ -71,7 +71,6 @@ To keep things simple maybe each item is represented via its database id? custom
 
 ## server routes
 The flask server will be purely for handling user login, registration, and db interactions (CRUD)
-- GET `/home`: landing page. quick summary of cold iron (dump this once react app setup? unsure)
 - POST `/login`: accepts a payload of username (str), hashed password (str)
 - GET `/characters/user/<userid>`: returns list of characters belonging to the user. full character object?
 - GET `/characters/<charid>`: returns a single character sheet

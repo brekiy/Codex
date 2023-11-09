@@ -1,0 +1,11 @@
+# nextjs notes
+- framework for building apps with react
+- folder structure:
+    - /app: contains all routes, components and logic
+    - /app/lib: store reusable functions here for fetching data, processing data, etc.
+        - db_types.ts: plan to have database types defined here
+    - /app/components: store UI components like tables and cards
+    - /public: store static assets like page icons
+- the folders are used to create routes on the webapp, each folder needs a `page.tsx` file inside to turn it into a route
+    - for example, `/app/page.tsx = /`, and `/app/rulebook/page.tsx = /rulebook`
+    - a `layout.tsx` file will apply the given layout to all children of this route
