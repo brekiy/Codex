@@ -1,0 +1,118 @@
+openapi: '3.0.2'
+info:
+  title: Cold Iron RPG Server API
+  version: '1.0'
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /test:
+    get:
+      responses:
+        '200':
+          description: OK
+  /login:
+    post:
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                # some user token that they use for everything else
+                type: string 
+        '400':
+          description: Incorrect login
+  /logout:
+    get:
+      summary: Logout current logged in user
+      responses:
+        default:
+          description: Success
+
+components:
+  schemas:
+    UserLogin:
+      required:
+        - email
+        - hashedPassword
+      type: object
+      properties:
+        email:
+          type: string
+          example: name@email.com
+        hashedPassword:
+          type: string
+    UserRegister:
+      required:
+        - email
+        - username
+        - hashedPassword
+      properties:
+        email:
+          type: string
+          example: name@email.com
+        username:
+          type: string
+          example: jimbo123
+        hashedPassword:
+          type: string
+    ItemTrait:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    BasicItem:
+      type: object
+      required:
+        - name
+        - weight
+        - price
+      properties:
+        id:
+          type: string
+        name: 
+          type: string
+        weight: 
+          type: number
+          format: float
+        price:
+          type: number
+          format: int32
+    WeaponItem:
+      allOf:
+        - $ref: '#/components/schemas/BasicItem'
+        - type: object
+          required:
+            - crit_mult
+            - traits
+            - mgt_requirement
+          properties:
+            crit_mult:
+              type: number
+            traits:
+              type: array
+              items:
+                $ref: '#/components/schemas/ItemTrait'
+            mgt_requirement:
+              type: number
+              format: int32
+    MeleeWeaponItem:
+      allOf:
+        - $ref: '#/components/schemas/WeaponItem'
+        - type: object
+          required:
+            - swing
+            - thrust
+          
